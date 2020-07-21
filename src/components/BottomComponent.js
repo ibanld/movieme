@@ -6,6 +6,8 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import VisibilityTwoToneIcon from '@material-ui/icons/VisibilityTwoTone';
 import StarsTwoToneIcon from '@material-ui/icons/StarsTwoTone';
 import PageviewTwoToneIcon from '@material-ui/icons/PageviewTwoTone';
+import {WatchedRoute, PendingRoute, SearchRoute} from '../Routing'
+import Pending from './Pending';
 
 const useStyles = makeStyles({
     root: {
@@ -37,9 +39,9 @@ export default function BottomComponent() {
             showLabels
             className={classes.root}
             >
-            <Link to="/"><BottomNavigationAction label="Search" icon={<PageviewTwoToneIcon />} /></Link>
-            <BottomNavigationAction label="Watched" icon={<VisibilityTwoToneIcon />} onClick={() => linkTo('watched')} />
-            <Link to="/pending"><BottomNavigationAction label="Pending" icon={<StarsTwoToneIcon />} /></Link>
+            <BottomNavigationAction label="Search" icon={<PageviewTwoToneIcon /> } component={Link} to={SearchRoute} />
+            <BottomNavigationAction label="Watched" icon={<VisibilityTwoToneIcon />} component={Link} to={WatchedRoute} />
+            <BottomNavigationAction label="Pending" icon={<StarsTwoToneIcon />} component={Link} to={PendingRoute}/>
             </BottomNavigation>
         </>
     );

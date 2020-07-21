@@ -1,11 +1,10 @@
 import React from 'react';
-import MainComponent from './components/MainComponent';
+import { BrowserRouter as Router } from 'react-router-dom'
+import Routing from './Routing'
 
 const App = () => {
   return(
-    <>
-      <MainComponent /> 
-    </>
+    <Router><Routing /></Router>
   )
 }
 

@@ -7,22 +7,12 @@ import Pending from './Pending'
 import { Container } from '@material-ui/core'
 import BottomComponent from './BottomComponent'
 
-export const MainComponent = () => {
+export const MainComponent = (props) => {
     return (
         <Router>
             <Navbar />
             <Container maxWidth="md">
-                <Switch>
-                    <Route exact path="/" component={Results}>
-                        <Results />
-                    </Route>
-                    <Route exact path="/watched" component={Watched}>
-                        <Watched />
-                    </Route>
-                    <Route exact path="/pending" component={Pending}>
-                        <Pending />
-                    </Route>
-                </Switch>
+                {props.children}
             </Container>
             <BottomComponent />
         </Router>
