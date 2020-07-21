@@ -1,7 +1,9 @@
 import React from 'react'
 import { TextField, InputAdornment } from '@material-ui/core'
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import ResultsList from './ResultList'
 import {key} from '../../key/key'
+
 
 const SearchBar = props => {
     const [search, setSearch] = React.useState('')
@@ -9,10 +11,6 @@ const SearchBar = props => {
     const [adult, setAdult] = React.useState(false)
     let lang= 'pt-BR'
     const [show, toggleShow] = React.useState(false)
-
-    const handleChange = e =>{
-        setSearch(e.target.value)
-    }
     
     const connect = async (e) => {
                 e.preventDefault();
@@ -30,29 +28,34 @@ const SearchBar = props => {
             }
         console.log(results)
     return (
-        <form onSubmit={connect}>
-            <TextField
-                id="outlined-full-width"
-                label="Search"
-                style={{ margin: 8 }}
-                placeholder="Look for a movie!"
-                fullWidth
-                margin="normal"
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <SearchOutlinedIcon />
-                        </InputAdornment>
-                    ),
-                }}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                variant="outlined"
-                onChange={(e) => setSearch(e.target.value)}
-                name={search}
-            />
-        </form>
+        <>
+            <form onSubmit={connect}>
+                <TextField
+                    id="outlined-full-width"
+                    label="Search"
+                    style={{ margin: 8 }}
+                    placeholder="Look for a movie!"
+                    fullWidth
+                    margin="normal"
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchOutlinedIcon />
+                            </InputAdornment>
+                        ),
+                    }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    variant="outlined"
+                    onChange={(e) => setSearch(e.target.value)}
+                    name={search}
+                />
+            </form>
+            {results.map( movie => 
+                <ResultsList key={movie.id} movie={movie}/>
+            )}
+        </>
     )
 }
 

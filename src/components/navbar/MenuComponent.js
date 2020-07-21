@@ -1,18 +1,11 @@
 import React from 'react'
 import TranslateIcon from '@material-ui/icons/Translate';
 import { Menu, MenuItem, IconButton } from '@material-ui/core'
-import { Link } from 'react-router-dom'
 
 const MenuComponent = props => {
     const [toggle, setToggle] = React.useState(false)
     const [lang, setLang] = React.useState('en-US')
 
-    const handleClick = lang => {
-        setToggle(!toggle)
-        setLang(lang)
-        
-    }
-    console.log(lang)
     return (
         <>
             <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setToggle(!toggle)}>
@@ -24,9 +17,9 @@ const MenuComponent = props => {
                 open={Boolean(toggle)}
                 onClose={() => setToggle(!toggle)}
             >
-                <MenuItem onClick={() => handleClick('en-US')}>English</MenuItem>
-                <MenuItem onClick={() => handleClick('es-ES')}>Español</MenuItem>
-                <MenuItem onClick={() => handleClick('pt-BR')}>Portuguese</MenuItem>
+                <MenuItem onClick={() => setLang('en-US')}>English</MenuItem>
+                <MenuItem onClick={() => setLang('es-ES')}>Español</MenuItem>
+                <MenuItem onClick={() => setLang('pt-BR')}>Portuguese</MenuItem>
             </Menu>
         </>
     )

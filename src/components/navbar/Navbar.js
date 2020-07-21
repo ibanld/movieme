@@ -1,8 +1,8 @@
 import React from 'react'
-import { AppBar, Typography, Toolbar, Button } from '@material-ui/core'
+import { AppBar, Typography, Toolbar } from '@material-ui/core'
 import MenuComponent from './MenuComponent'
 
-const NavBar = props => {
+const NavBar = () => {
     return (
         <AppBar position="static">
             <Toolbar>

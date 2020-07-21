@@ -1,4 +1,5 @@
 import React from 'react'
+import MovieModal from './MovieModal'
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -10,21 +11,28 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import StarsOutlinedIcon from '@material-ui/icons/StarsOutlined';
 import StarsIcon from '@material-ui/icons/Stars';
 
-export const ResultList = () => {
+export const ResultList = ({ movie }) => {
     const [watched, setWatched] = React.useState(false)
     const [listed, setListed] = React.useState(false)
 
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(!open)
+    }
+
     return (
         <Card>
-            <CardActionArea>
+            <CardActionArea onClick = { () => handleOpen()}>
                 <CardMedia 
-                image="..."
+                component="img"
+                image={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
                 title="Movie Poster"
                 />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">Movie Title</Typography>
+                        <Typography gutterBottom variant="h5" component="h2">{movie.title}</Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            La descripcion de la pelicula
+                            {movie.overview}
                         </Typography>
                     </CardContent>
             </CardActionArea>
@@ -48,6 +56,7 @@ export const ResultList = () => {
                         </Button>
                     )}
             </CardActions>
+            <MovieModal open={open} handleOpen={handleOpen} movie={movie}/>
         </Card>
     )
 }
