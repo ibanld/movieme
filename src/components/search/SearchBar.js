@@ -1,22 +1,36 @@
 import React from 'react'
 import { TextField, InputAdornment } from '@material-ui/core'
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
+import {key} from '../../key/key'
 
 const SearchBar = props => {
     const [search, setSearch] = React.useState('')
+    const [results, setResults] = React.useState([])
+    const [adult, setAdult] = React.useState(false)
+    let lang= 'pt-BR'
     const [show, toggleShow] = React.useState(false)
 
     const handleChange = e =>{
         setSearch(e.target.value)
     }
-
-    if (search.length > 4) {
-        console.log(search);
-        toggleShow(true)
-    }
     
+    const connect = async (e) => {
+                e.preventDefault();
+
+                const url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=${lang}&query=${search}&page=1&include_adult=${adult}`;
+                
+                try {
+                    const res = await fetch(url);
+                    const data  = await res.json();
+                    setResults(data.results)
+                    
+                }catch(err){
+                    console.error(err);
+                }
+            }
+        console.log(results)
     return (
-        <div>
+        <form onSubmit={connect}>
             <TextField
                 id="outlined-full-width"
                 label="Search"
@@ -35,10 +49,10 @@ const SearchBar = props => {
                     shrink: true,
                 }}
                 variant="outlined"
-                onChange={(e) => handleChange(e)}
+                onChange={(e) => setSearch(e.target.value)}
                 name={search}
             />
-        </div>
+        </form>
     )
 }
 
