@@ -1,10 +1,11 @@
 import React from 'react';
+import MainComponent from './components/MainComponent';
 
 const App = () => {
   return(
-    <div>
-      THIS IS MOVIE APP
-    </div>
+    <>
+      <MainComponent /> 
+    </>
   )
 }
 
