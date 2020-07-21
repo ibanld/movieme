@@ -1,18 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import SearchBar from './SearchBar'
-
+import ResultList from './ResultList'
 const Results = props => {
     return (
         <>
             <SearchBar />
-            RESULTS
+            <ResultList />
         </>
     )
 }
 
-Results.propTypes = {
-
-}
 
 export default Results

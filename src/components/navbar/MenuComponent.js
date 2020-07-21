@@ -1,16 +1,22 @@
 import React from 'react'
-import MenuIcon from '@material-ui/icons/Menu'
+import TranslateIcon from '@material-ui/icons/Translate';
 import { Menu, MenuItem, IconButton } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
 const MenuComponent = props => {
     const [toggle, setToggle] = React.useState(false)
+    const [lang, setLang] = React.useState('en-US')
 
-
+    const handleClick = lang => {
+        setToggle(!toggle)
+        setLang(lang)
+        
+    }
+    console.log(lang)
     return (
         <>
             <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setToggle(!toggle)}>
-                <MenuIcon />
+                <TranslateIcon />
             </IconButton> 
             <Menu
                 id="drop-menu"
@@ -18,9 +24,9 @@ const MenuComponent = props => {
                 open={Boolean(toggle)}
                 onClose={() => setToggle(!toggle)}
             >
-                <Link to="/"><MenuItem onClick={() => setToggle(!toggle)}>Search</MenuItem></Link>
-                <Link to="/watched"><MenuItem onClick={() => setToggle(!toggle)}>My Movies</MenuItem></Link>
-                <Link to="/pending"><MenuItem onClick={() => setToggle(!toggle)}>My Watch List</MenuItem></Link>
+                <MenuItem onClick={() => handleClick('en-US')}>English</MenuItem>
+                <MenuItem onClick={() => handleClick('es-ES')}>Español</MenuItem>
+                <MenuItem onClick={() => handleClick('pt-BR')}>Portuguese</MenuItem>
             </Menu>
         </>
     )
