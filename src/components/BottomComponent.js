@@ -7,7 +7,6 @@ import VisibilityTwoToneIcon from '@material-ui/icons/VisibilityTwoTone';
 import StarsTwoToneIcon from '@material-ui/icons/StarsTwoTone';
 import PageviewTwoToneIcon from '@material-ui/icons/PageviewTwoTone';
 import {WatchedRoute, PendingRoute, SearchRoute} from '../Routing'
-import Pending from './Pending';
 
 const useStyles = makeStyles({
     root: {
@@ -20,14 +19,6 @@ const useStyles = makeStyles({
 export default function BottomComponent() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-
-    const linkTo = goto => {
-            console.log(goto)
-        return (
-            <Link to={`/${goto}`}/>
-
-        )
-    }
 
     return (
         <>

@@ -14,9 +14,7 @@ const SearchBar = props => {
         console.log(search);
         toggleShow(true)
     }
-
     
-
     return (
         <div>
             <TextField
