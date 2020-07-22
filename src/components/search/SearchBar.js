@@ -2,6 +2,7 @@ import React from 'react'
 import { TextField, InputAdornment } from '@material-ui/core'
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import ResultsList from './ResultList'
+import { useSelector } from 'react-redux'
 import {key} from '../../key/key'
 
 
@@ -9,7 +10,7 @@ const SearchBar = props => {
     const [search, setSearch] = React.useState('')
     const [results, setResults] = React.useState([])
     const [adult, setAdult] = React.useState(false)
-    let lang= 'pt-BR'
+    const lang= useSelector( state => state.lang)
     const [show, toggleShow] = React.useState(false)
     
     const connect = async (e) => {
@@ -52,9 +53,16 @@ const SearchBar = props => {
                     name={search}
                 />
             </form>
-            {results.map( movie => 
-                <ResultsList key={movie.id} movie={movie}/>
-            )}
+            {results ? 
+                (results.map( movie => 
+                    <ResultsList key={movie.id} movie={movie}/>
+                )) : 
+                (<>
+                    {lang === 'en-US' && 'Ops! There arent any results for your search. Try again!'}
+                    {lang === 'es-ES' && 'Vaya! Parece que tu búsqueda no ha dadao resultado. ¡Intentalo de nuevo!'}
+                    {lang === 'pt-BR' && 'Vaya! Parece que tu búsqueda no ha dadao resultado. ¡Intentalo de nuevo!'}
+                </>)
+            }
         </>
     )
 }

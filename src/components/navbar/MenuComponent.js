@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import {eng, esp, port } from '../../redux/setLang'
 import TranslateIcon from '@material-ui/icons/Translate';
 import { Menu, MenuItem, IconButton } from '@material-ui/core'
 
 const MenuComponent = props => {
     const [toggle, setToggle] = React.useState(false)
-    useSelector( state => state.lang)
+    
     const dispatch = useDispatch()
     return (
         <>
