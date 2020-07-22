@@ -4,7 +4,10 @@ import Routing from './Routing'
 
 const App = () => {
   return(
-    <Router><Routing /></Router>
+      <Router> 
+        <Routing />
+      </Router>
+
   )
 }
 

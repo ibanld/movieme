@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {eng, esp, port } from '../../redux/setLang'
 import TranslateIcon from '@material-ui/icons/Translate';
 import { Menu, MenuItem, IconButton } from '@material-ui/core'
 
 const MenuComponent = props => {
     const [toggle, setToggle] = React.useState(false)
-    const [lang, setLang] = React.useState('en-US')
-
+    useSelector( state => state.lang)
+    const dispatch = useDispatch()
     return (
         <>
             <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setToggle(!toggle)}>
@@ -17,9 +19,9 @@ const MenuComponent = props => {
                 open={Boolean(toggle)}
                 onClose={() => setToggle(!toggle)}
             >
-                <MenuItem onClick={() => setLang('en-US')}>English</MenuItem>
-                <MenuItem onClick={() => setLang('es-ES')}>Español</MenuItem>
-                <MenuItem onClick={() => setLang('pt-BR')}>Portuguese</MenuItem>
+                <MenuItem onClick={() => dispatch(eng())}>English</MenuItem>
+                <MenuItem onClick={() => dispatch(esp())}>Español</MenuItem>
+                <MenuItem onClick={() => dispatch(port())}>Portuguese</MenuItem>
             </Menu>
         </>
     )

@@ -26,7 +26,7 @@ const SearchBar = props => {
                     console.error(err);
                 }
             }
-        console.log(results)
+            console.log(results)
     return (
         <>
             <form onSubmit={connect}>
