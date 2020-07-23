@@ -6,16 +6,11 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Typography, Button } from '@material-ui/core';
-import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import StarsOutlinedIcon from '@material-ui/icons/StarsOutlined';
-import StarsIcon from '@material-ui/icons/Stars';
+
 import Rating from '@material-ui/lab/Rating';
+import Moment from 'react-moment';
 
 export const ResultList = ({ movie }) => {
-	const [ watched, setWatched ] = React.useState(false);
-	const [ listed, setListed ] = React.useState(false);
-
 	const [ open, setOpen ] = React.useState(false);
 
 	const handleOpen = () => {
@@ -37,25 +32,8 @@ export const ResultList = ({ movie }) => {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-				{!watched ? (
-					<Button onClick={() => setWatched(!watched)}>
-						<VisibilityOutlinedIcon />
-					</Button>
-				) : (
-					<Button onClick={() => setWatched(!watched)}>
-						<VisibilityIcon />
-					</Button>
-				)}
-				{!listed ? (
-					<Button onClick={() => setListed(!listed)}>
-						<StarsOutlinedIcon />
-					</Button>
-				) : (
-					<Button onClick={() => setListed(!listed)}>
-						<StarsIcon />
-					</Button>
-				)}
-				<Rating name='movierating' value={movie.vote_average / 2} readOnly precision={0.5} />
+					<Moment format="DD/MM/YYYY">{movie.date}</Moment>
+					<Rating name='movierating' value={movie.vote_average / 2} readOnly precision={0.5} />
 			</CardActions>
 			<MovieModal open={open} handleOpen={handleOpen} movie={movie} />
 		</Card>
