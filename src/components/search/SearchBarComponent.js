@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextField, InputAdornment } from '@material-ui/core'
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
-import ResultsList from './ResultList'
+import ResultsList from './MoviesListComponent'
 import { useSelector } from 'react-redux'
 import {key} from '../../key/key'
 

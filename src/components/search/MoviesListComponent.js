@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieModal from './MovieModal';
+import MovieModal from './MovieComponent';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -55,7 +55,7 @@ export const ResultList = ({ movie }) => {
 						<StarsIcon />
 					</Button>
 				)}
-				<Rating name='movierating' value={movie.vote_average/2} readOnly precision={0.5} />
+				<Rating name='movierating' value={movie.vote_average / 2} readOnly precision={0.5} />
 			</CardActions>
 			<MovieModal open={open} handleOpen={handleOpen} movie={movie} />
 		</Card>

@@ -1,10 +1,10 @@
 import React from 'react'
 import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Typography, Divider } from '@material-ui/core'
 import Rating from '@material-ui/lab/Rating'
-import MovieModal from './search/MovieModal'
+import MovieModal from './search/MovieComponent'
 import PropTypes from 'prop-types'
 
-const Watched = props => {
+const Rated = props => {
     const [rate, setRate] = React.useState(2);
 
     return (
@@ -43,8 +43,8 @@ const Watched = props => {
     )
 }
 
-Watched.propTypes = {
+Rated.propTypes = {
 
 }
 
-export default Watched
+export default Rated

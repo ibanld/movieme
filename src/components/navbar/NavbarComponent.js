@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Typography, Toolbar, Button, Box } from '@material-ui/core';
+import { AppBar, Typography, Toolbar } from '@material-ui/core';
 import MenuComponent from './MenuComponent';
 
 const NavBar = () => {
