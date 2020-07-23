@@ -19,6 +19,7 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 		<Button
 			onClick={() => {
 				dispatch(removeRatedMovie(movie));
+				dispatch(showAlert(`${movie.title} deleted from your Watched movies`, 'error'));
 				handleOpen();
 			}}
 		>
@@ -41,7 +42,7 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 		<Button
 			onClick={() => {
 				dispatch(removeListedMovie(movie));
-				dispatch(showAlert(`${movie.title} deleted from Watched movies`, 'error'));
+				dispatch(showAlert(`${movie.title} deleted from your Pending movies`, 'error'));
 				handleOpen();
 			}}
 		>
@@ -51,6 +52,7 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 		<Button
 			onClick={() => {
 				dispatch(addListedMovie(movie));
+				dispatch(showAlert(`${movie.title} added to Pending movies`, 'success'));
 				handleOpen();
 			}}
 		>
@@ -72,6 +74,7 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 					value={movie.rate}
 					onChange={(event, newRate) => {
 						dispatch(addRate(movie, newRate));
+						dispatch(showAlert(`You have rated ${movie.title} with ${newRate} over 5`, 'info'));
 						handleOpen();
 					}}
 				/>
