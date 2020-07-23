@@ -5,23 +5,26 @@ import TranslateIcon from '@material-ui/icons/Translate';
 import { Menu, MenuItem, IconButton } from '@material-ui/core'
 
 const MenuComponent = props => {
-    const [toggle, setToggle] = React.useState(false)
+    const [anchorEl, setAnchorEl] = React.useState(null);
     
+    const handleClick = e => setAnchorEl(e.currentTarget)
+    const handleClose = () => setAnchorEl(null)
     const dispatch = useDispatch()
     return (
         <>
-            <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => setToggle(!toggle)}>
+            <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleClick}>
                 <TranslateIcon />
             </IconButton> 
             <Menu
-                id="drop-menu"
+                id="simple-menu"
+                anchorEl={anchorEl}
                 keepMounted
-                open={Boolean(toggle)}
-                onClose={() => setToggle(!toggle)}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
             >
-                <MenuItem onClick={() => dispatch(eng())}>English</MenuItem>
-                <MenuItem onClick={() => dispatch(esp())}>Español</MenuItem>
-                <MenuItem onClick={() => dispatch(port())}>Portuguese</MenuItem>
+                <MenuItem onClick={() => {dispatch(eng()); handleClose()}}>English</MenuItem>
+                <MenuItem onClick={() => {dispatch(esp()); handleClose()}}>Español</MenuItem>
+                <MenuItem onClick={() => {dispatch(port()); handleClose()}}>Portuguese</MenuItem>
             </Menu>
         </>
     )

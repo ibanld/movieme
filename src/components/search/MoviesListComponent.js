@@ -5,8 +5,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import { Typography, Button } from '@material-ui/core';
-
+import { Typography } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import Moment from 'react-moment';
 
@@ -18,7 +17,7 @@ export const ResultList = ({ movie }) => {
 	};
 
 	return (
-		<Card>
+		<Card style={{ marginTop: '2vh' }}>
 			<CardActionArea onClick={() => handleOpen()}>
 				<CardMedia
 					component='img'
@@ -32,8 +31,8 @@ export const ResultList = ({ movie }) => {
 				</CardContent>
 			</CardActionArea>
 			<CardActions>
-					<Moment format="DD/MM/YYYY">{movie.date}</Moment>
-					<Rating name='movierating' value={movie.vote_average / 2} readOnly precision={0.5} />
+				<Moment format='DD/MM/YYYY'>{movie.date}</Moment>
+				<Rating name='movierating' value={movie.vote_average / 2} readOnly precision={0.5} />
 			</CardActions>
 			<MovieModal open={open} handleOpen={handleOpen} movie={movie} />
 		</Card>

@@ -5,18 +5,15 @@ import ResultsList from './MoviesListComponent'
 import { useSelector } from 'react-redux'
 import {key} from '../../key/key'
 
-
 const SearchBar = props => {
     const [search, setSearch] = React.useState('')
     const [results, setResults] = React.useState([])
-    const [adult, setAdult] = React.useState(false)
     const lang= useSelector( state => state.lang)
-    const [show, toggleShow] = React.useState(false)
-    
+    const [open, setOpen] = React.useState(true)
     const connect = async (e) => {
                 e.preventDefault();
 
-                const url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=${lang}&query=${search}&page=1&include_adult=${adult}`;
+                const url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=${lang}&query=${search}&page=1&include_adult=false`;
                 
                 try {
                     const res = await fetch(url);
@@ -29,7 +26,8 @@ const SearchBar = props => {
             }
     return (
         <>
-            <form onSubmit={connect}>
+            
+            <form onSubmit={connect} style={{ marginTop: '2vh'  }}>
                 <TextField
                     id="outlined-full-width"
                     label="Search"

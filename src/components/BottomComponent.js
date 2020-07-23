@@ -12,7 +12,8 @@ const useStyles = makeStyles({
     root: {
         width: '100vw',
         position: 'fixed',
-        bottom: 0
+        bottom: 0,
+        boxShadow: '0px -3px 14px 3px rgba(0,0,0,0.2)'
     },
 });
 

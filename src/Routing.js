@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import MainComponent from './components/MainComponent';
 import SearchBar from './components/search/SearchBarComponent';
-import WatchList from './components/WatchListComponent';
-import Rated from './components/RatedComponent';
+import WatchList from './components/list/WatchListComponent';
+import Rated from './components/rated/RatedComponent';
 
 export const SearchRoute = '/';
 export const RatedRoute = '/rated';

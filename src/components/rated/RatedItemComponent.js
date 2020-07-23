@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button , ListItem, ListItemText, ListItemAvatar, Avatar, Typography, Divider } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
-import { removeRatedMovie, addRate } from '../redux/rating'
+import { removeRatedMovie, addRate } from '../../redux/rating'
 import Moment from 'react-moment'
 import Rating from '@material-ui/lab/Rating'
 import VisibilityIcon from '@material-ui/icons/Visibility';
