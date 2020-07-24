@@ -10,17 +10,16 @@ export const AlertComponent = () => {
 		() => {
 			setTimeout(() => dispatch(hideAlert()), 3500);
 		},
-		[ alert.open ]
+		[ alert.open, dispatch ]
 	);
 
 	return (
 		<div
 			style={{
 				display: alert.open ? 'flex' : 'none',
-				position: 'absolute',
+				position: 'sticky',
 				justifyContent: 'center',
 				width: '100%',
-				position: 'sticky',
 				top: 0,
 				zIndex: 9999
 			}}

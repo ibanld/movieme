@@ -21,7 +21,7 @@ export const ResultList = ({ movie }) => {
 			<CardActionArea onClick={() => handleOpen()}>
 				<CardMedia
 					component='img'
-					image={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
+					image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
 					title='Movie Poster'
 				/>
 				<CardContent>

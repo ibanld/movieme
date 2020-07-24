@@ -9,7 +9,6 @@ const SearchBar = props => {
     const [search, setSearch] = React.useState('')
     const [results, setResults] = React.useState([])
     const lang= useSelector( state => state.lang)
-    const [open, setOpen] = React.useState(true)
     const connect = async (e) => {
                 e.preventDefault();
 
@@ -50,15 +49,15 @@ const SearchBar = props => {
                     name={search}
                 />
             </form>
-            {results ? 
+            {results ?  
                 (results.map( movie => 
                     <ResultsList key={movie.id} movie={movie}/>
-                )) : 
+                )) :
                 (<>
                     {lang === 'en-US' && 'Ops! There arent any results for your search. Try again!'}
                     {lang === 'es-ES' && 'Vaya! Parece que tu búsqueda no ha dadao resultado. ¡Intentalo de nuevo!'}
                     {lang === 'pt-BR' && 'Vaya! Parece que tu búsqueda no ha dadao resultado. ¡Intentalo de nuevo!'}
-                </>)
+                </>) 
             }
         </>
     )
