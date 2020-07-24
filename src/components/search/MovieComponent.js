@@ -64,11 +64,17 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 		<Dialog open={open} onClose={handleOpen} aria-labelledby='form-dialog-title'>
 			<DialogTitle id='form-dialog-title'>{movie.title}</DialogTitle>
 			<DialogContent>
+				<img
+					src={`https://image.tmdb.org/t/p/w780/${movie.poster_path}`}
+					alt={movie.title}
+					style={{ maxWidth: '100%' }}
+				/>
 				<DialogContentText>{movie.overview}</DialogContentText>
 			</DialogContent>
 			<DialogActions>
 				{ratingBtns}
 				{listingBtns}
+
 				<Rating
 					name='simple-controlled'
 					value={movie.rate}

@@ -7,6 +7,7 @@ const NavBar = () => {
 		<AppBar position='static'>
 			<Toolbar>
 				<MenuComponent />
+
 				<Typography>MovieMe </Typography>
 			</Toolbar>
 		</AppBar>

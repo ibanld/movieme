@@ -17,7 +17,7 @@ export const ResultList = ({ movie }) => {
 	};
 
 	return (
-		<Card style={{ marginTop: '2vh' }}>
+		<Card style={{ marginTop: '2vh', marginBottom: '10vh' }}>
 			<CardActionArea onClick={() => handleOpen()}>
 				<CardMedia
 					component='img'

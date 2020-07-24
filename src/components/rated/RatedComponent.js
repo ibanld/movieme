@@ -8,7 +8,7 @@ const Rated = () => {
 
     return (
         <div style={{marginTop: '2vh', marginBottom: '10vh'}}>
-            <Typography variant="h4" component="h4">Your Watched Movies</Typography>
+            <Typography variant="h4" component="h5">Your Watched Movies</Typography>
             {ratedMovies.length < 1 ?  
                 ( <>Add a movie to your List</>) :
                 (ratedMovies.map(movie => 
