@@ -9,7 +9,7 @@ export const WatchList = () => {
 
 	return (
 		<>
-			<div style={{marginTop: '2vh'}}>
+			<div style={{marginTop: '2vh', marginBottom: '10vh'}}>
 				<Typography variant="h4" component="h4">Your Pending Movies</Typography>
 				{listedMovies.length < 1 ? 'Add a movie to your Watch list' : 
 				(listedMovies.map(movie => <WatchListItem key={movie.id} movie={movie} />))}

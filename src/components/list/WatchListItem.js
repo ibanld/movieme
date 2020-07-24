@@ -1,10 +1,10 @@
 import React from 'react';
 import MovieModal from '../search/MovieComponent';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addRatedMovie } from '../../redux/rating';
+import { showAlert } from '../../redux/alert';
 import { removeListedMovie } from '../../redux/listing';
-import PropTypes from 'prop-types';
-import { Card, CardContent, CardMedia, Button, Typography, Divider } from '@material-ui/core';
+import { Card, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import Moment from 'react-moment';
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
@@ -35,13 +35,15 @@ const WatchListItem = ({ movie }) => {
                     <div>
                         <Button
                             onClick={() => {
-                                dispatch(addRatedMovie(movie));
+                                dispatch(addRatedMovie(movie, 0));
                                 dispatch(removeListedMovie(movie));
+                                dispatch(showAlert(`${movie.title} added to Watched movies`, 'success'));
                             }}
                         >
                             <VisibilityOutlinedIcon />
                         </Button>
-                        <Button onClick={() => dispatch(removeListedMovie(movie))}>
+                        <Button onClick={() => {dispatch(removeListedMovie(movie));
+                        dispatch(showAlert(`You have removed ${movie.title} from Watched movies`, 'error'));}}>
                             <StarsIcon />
                         </Button>
                     </div>
@@ -57,7 +59,5 @@ const WatchListItem = ({ movie }) => {
         </>
 	);
 };
-
-WatchListItem.propTypes = {};
 
 export default WatchListItem;

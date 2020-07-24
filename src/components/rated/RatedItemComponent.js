@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Card, CardContent, CardMedia } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { removeRatedMovie, addRate } from '../../redux/rating';
+import { showAlert } from '../../redux/alert';
 import Moment from 'react-moment';
 import Rating from '@material-ui/lab/Rating';
 import VisibilityIcon from '@material-ui/icons/Visibility';
@@ -37,11 +38,17 @@ const ListedItem = ({ movie }) => {
 					<Rating
 						name='simple-controlled'
 						value={movie.rate}
-						onChange={(event, newRate) => dispatch(addRate(movie.movie, newRate))}
+						onChange={(event, newRate) => {
+							dispatch(addRate(movie.movie, newRate));
+							dispatch(showAlert(`You have rated ${movie.movie.title} with ${newRate} over 5`, 'info'));
+						}}
 					/>
 
 					<VisibilityIcon
-						onClick={() => dispatch(removeRatedMovie(movie.movie))}
+						onClick={() => {
+							dispatch(removeRatedMovie(movie.movie));
+							dispatch(showAlert(` You have deleted ${movie.movie.title} from Watched movies`, 'error'));
+						}}
 						style={{ cursor: 'pointer' }}
 					/>
 				</div>
