@@ -1,17 +1,16 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import ListedItem from './RatedItemComponent'
-import { List, ListItem, ListItemText, ListItemAvatar, Avatar, Typography, Divider } from '@material-ui/core'
-import MovieModal from '../search/MovieComponent'
+import { Typography } from '@material-ui/core'
 import PropTypes from 'prop-types'
 
 
 const Rated = props => {
-
     const ratedMovies = useSelector((state) => state.rating)
 
     return (
-        <List>
+        <div style={{marginTop: '2vh'}}>
+            <Typography variant="h4" component="h4">Your Watched Movies</Typography>
             {ratedMovies.length < 1 ?  
                 ( <>Add a movie to your List</>) :
                 (ratedMovies.map(movie => 
@@ -19,7 +18,7 @@ const Rated = props => {
                 ))               
                 }
             
-        </List>
+        </div>
     )
 }
 

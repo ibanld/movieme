@@ -28,7 +28,7 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 	) : (
 		<Button
 			onClick={() => {
-				dispatch(addRatedMovie(movie));
+				dispatch(addRatedMovie(movie, 0));
 				dispatch(showAlert(`${movie.title} added to Watched movies`, 'success'));
 				dispatch(removeListedMovie(movie));
 				handleOpen();

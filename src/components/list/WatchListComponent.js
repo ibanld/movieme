@@ -1,9 +1,7 @@
 import React from 'react';
 import WatchListItem from './WatchListItem'
 import { Typography } from '@material-ui/core'
-import { useSelector, useDispatch } from 'react-redux';
-import { removeRatedMovie, addRate } from '../../redux/rating'
-import { addListedMovie, removeListedMovie } from '../../redux/listing';
+import { useSelector } from 'react-redux';
 
 export const WatchList = () => {
 	const lang = useSelector((state) => state.lang);
@@ -11,9 +9,9 @@ export const WatchList = () => {
 
 	return (
 		<>
-			<div>
+			<div style={{marginTop: '2vh'}}>
 				<Typography variant="h4" component="h4">Your Pending Movies</Typography>
-				{listedMovies.length < 1 ? 'Add a move to your Watch list' : 
+				{listedMovies.length < 1 ? 'Add a movie to your Watch list' : 
 				(listedMovies.map(movie => <WatchListItem key={movie.id} movie={movie} />))}
 			</div>
 

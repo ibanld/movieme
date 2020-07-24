@@ -14,12 +14,20 @@ export const AlertComponent = () => {
 	);
 
 	return (
-		<Alert
-			variant='filled'
-			severity={alert.severity}
-			style={{ width: '100%', margin: 'auto', display: alert.open ? 'block' : 'none' }}
+		<div
+			style={{
+				display: alert.open ? 'flex' : 'none',
+				position: 'absolute',
+				justifyContent: 'center',
+				width: '100%',
+				position: 'sticky',
+				top: 0,
+				zIndex: 9999
+			}}
 		>
-			{alert.msg}
-		</Alert>
+			<Alert variant='filled' severity={alert.severity}>
+				{alert.msg}
+			</Alert>
+		</div>
 	);
 };

@@ -1,48 +1,53 @@
-import React from 'react'
-import { Button , ListItem, ListItemText, ListItemAvatar, Avatar, Typography, Divider } from '@material-ui/core'
-import { useDispatch } from 'react-redux'
-import { removeRatedMovie, addRate } from '../../redux/rating'
-import Moment from 'react-moment'
-import Rating from '@material-ui/lab/Rating'
+import React from 'react';
+import { Typography, Card, CardContent, CardMedia } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { removeRatedMovie, addRate } from '../../redux/rating';
+import Moment from 'react-moment';
+import Rating from '@material-ui/lab/Rating';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const ListedItem = ({ movie }) => {
-    const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
-    return (
-        <>
-        <ListItem alignItems="flex-start">
-            <ListItemAvatar>
-                <Avatar alt={movie.movie.title} src={`https://image.tmdb.org/t/p/w780/${movie.movie.poster_path}`} />
-            </ListItemAvatar>
-            <ListItemText
-            primary={movie.movie.title}
-            secondary={
-                <>
-                    <Typography
-                        component="span"
-                        variant="body2"
-                        color="textPrimary"
-                    >
-                        {movie.movie.overview}
-                    </Typography>
-                    <Moment format="DD/MM/YYYY">{movie.movie.date}</Moment>
-                    <Button onClick={() => dispatch(removeRatedMovie(movie.movie))}>
-                            <VisibilityIcon />
-                    </Button>
-                    <Rating
-                        name="simple-controlled"
-                        value={movie.rate}
-                        onChange={(event, newRate) => dispatch(addRate(movie.movie, newRate))}
-                    />
-                </>
-            }
-            />
-        </ListItem>
-        <Divider variant="inset" component="li" />
-    </>
-    )
-}
+	return (
+		<Card style={{ display: 'flex', justifyContent: 'space-between', marginTop: 20 }}>
+			<div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+				<CardMedia
+					style={{ width: 200 }}
+					image={`https://image.tmdb.org/t/p/w780/${movie.movie.poster_path}`}
+					title={movie.title}
+				/>
+				<CardContent>
+					<Typography component='h5' variant='h5'>
+						{movie.movie.title}
+					</Typography>
+					<Typography variant='subtitle1' color='textSecondary'>
+						<Moment format='DD/MM/YYYY'>{movie.movie.date}</Moment>
+					</Typography>
+					<p>{movie.movie.overview}</p>
+				</CardContent>
+				<div
+					style={{
+						display: 'flex',
+						justifyContent: 'space-between',
+						alignItems: 'center',
+						margin: '1vh 1vw'
+					}}
+				>
+					<Rating
+						name='simple-controlled'
+						value={movie.rate}
+						onChange={(event, newRate) => dispatch(addRate(movie.movie, newRate))}
+					/>
 
-export default ListedItem
+					<VisibilityIcon
+						onClick={() => dispatch(removeRatedMovie(movie.movie))}
+						style={{ cursor: 'pointer' }}
+					/>
+				</div>
+			</div>
+		</Card>
+	);
+};
 
+export default ListedItem;
