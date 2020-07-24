@@ -6,6 +6,7 @@ import {AlertComponent} from './AlertComponent'
 
 
 export const MainComponent = (props) => {
+
     return (
         <>
             <Navbar />
