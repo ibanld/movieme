@@ -13,7 +13,14 @@ const english = {
 	watchedNavbar: 'Watched',
 	pendingNavbar: 'Pending',
 	watchedTitle: 'Your Watched Movies',
-	pendingTitle: 'Your Pending Movies'
+	pendingTitle: 'Your Pending Movies',
+	alertDeletedWatch: ' deleted from your Watched movies',
+	alertAddedWatch: ' added to Watched Movies',
+	alertDeletedPending: ' deleted from your Pending movies',
+	alertAddedPending: ' added to Pending movies',
+	ratingInit: 'You have rated ',
+	ratingWith: ' with ',
+	ratingRate: ' stars'
 };
 
 const spanish = {
@@ -22,7 +29,14 @@ const spanish = {
 	noResults: 'Vaya! Parece que tu búsqueda no ha dadao resultado. ¡Intentalo de nuevo!',
 	searchNavbar: 'Buscar',
 	watchedNavbar: 'Vistas',
-	pendingNavbar: 'Pendientes'
+	pendingNavbar: 'Pendientes',
+	alertDeletedWatch: ' eliminada de tus Películas Vistas',
+	alertAddedWatch: ' añadida a Películas Vistas',
+	alertDeletedPending: ' eliminada de tus Películas Pendientes',
+	alertAddedPending: ' añadida a tus Películas Pendientes',
+	ratingInit: 'Has valorado ',
+	ratingWith: ' con ',
+	ratingRate: ' estrellas'
 };
 
 const portuguese = {};

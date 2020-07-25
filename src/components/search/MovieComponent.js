@@ -13,13 +13,14 @@ import StarsIcon from '@material-ui/icons/Stars';
 const MovieModal = ({ handleOpen, open, movie }) => {
 	const listedMovies = useSelector((state) => state.listing);
 	const ratedMovies = useSelector((state) => state.rating);
+	const translate = useSelector((state) => state.translate);
 	const dispatch = useDispatch();
 
 	const ratingBtns = ratedMovies.find((savedMovie) => savedMovie.movie.id === movie.id) ? (
 		<Button
 			onClick={() => {
 				dispatch(removeRatedMovie(movie));
-				dispatch(showAlert(`${movie.title} deleted from your Watched movies`, 'error'));
+				dispatch(showAlert(`${movie.title}${translate.alertDeletedWatch}`, 'error'));
 				handleOpen();
 			}}
 		>
@@ -29,7 +30,7 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 		<Button
 			onClick={() => {
 				dispatch(addRatedMovie(movie, 0));
-				dispatch(showAlert(`${movie.title} added to Watched movies`, 'success'));
+				dispatch(showAlert(`${movie.title}${translate.alertAddedWatch}`, 'success'));
 				dispatch(removeListedMovie(movie));
 				handleOpen();
 			}}
@@ -42,7 +43,7 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 		<Button
 			onClick={() => {
 				dispatch(removeListedMovie(movie));
-				dispatch(showAlert(`${movie.title} deleted from your Pending movies`, 'error'));
+				dispatch(showAlert(`${movie.title}${translate.alertDeletedPending} `, 'error'));
 				handleOpen();
 			}}
 		>
@@ -52,7 +53,7 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 		<Button
 			onClick={() => {
 				dispatch(addListedMovie(movie));
-				dispatch(showAlert(`${movie.title} added to Pending movies`, 'success'));
+				dispatch(showAlert(`${movie.title}${translate.alertAddedPending} `, 'success'));
 				handleOpen();
 			}}
 		>
@@ -80,7 +81,12 @@ const MovieModal = ({ handleOpen, open, movie }) => {
 					value={movie.rate}
 					onChange={(event, newRate) => {
 						dispatch(addRate(movie, newRate));
-						dispatch(showAlert(`You have rated ${movie.title} with ${newRate} over 5`, 'info'));
+						dispatch(
+							showAlert(
+								`${translate.ratingInit}${movie.title}${translate.ratingWith}${newRate}${translate.ratingRate}`,
+								'info'
+							)
+						);
 						handleOpen();
 					}}
 				/>
