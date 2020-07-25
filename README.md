@@ -5,7 +5,7 @@
 ## 🔨 Built with
 __Movie Me__ has been built using [React](https://es.reactjs.org/), [Material-UI](https://material-ui.com/), [Redux](https://redux.js.org/) and [Redux Persist](https://github.com/rt2zz/redux-persist).
 
-This App also uses [Moment]() to improve the date visualization, [React Router]() to enhance the user navigation between components and [the Movie Database API](), which is fetched to have access to the data. 
+This App also uses [Moment](https://momentjs.com/) to improve the date visualization, [React Router](https://reactrouter.com/) to enhance the user navigation between components and [the Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction), which is fetched to have access to the data. 
 
 ## 🌟 Features
 1. Developed using __React Hooks__
