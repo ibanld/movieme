@@ -1,6 +1,6 @@
 import React from 'react';
 import MovieModal from '../search/MovieComponent';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addRatedMovie } from '../../redux/rating';
 import { showAlert } from '../../redux/alert';
 import { removeListedMovie } from '../../redux/listing';
@@ -12,6 +12,7 @@ import StarsIcon from '@material-ui/icons/Stars';
 
 const WatchListItem = ({ movie }) => {
     const [ open, setOpen ] = React.useState(false);
+    const translate = useSelector(state => state.translate)
 
 	const handleOpen = () => {
 		setOpen(!open);
@@ -37,13 +38,13 @@ const WatchListItem = ({ movie }) => {
                             onClick={() => {
                                 dispatch(addRatedMovie(movie, 0));
                                 dispatch(removeListedMovie(movie));
-                                dispatch(showAlert(`${movie.title} added to Watched movies`, 'success'));
+                                dispatch(showAlert(`${movie.title}${translate.alertAddedWatch}`, 'success'));
                             }}
                         >
                             <VisibilityOutlinedIcon />
                         </Button>
                         <Button onClick={() => {dispatch(removeListedMovie(movie));
-                        dispatch(showAlert(`You have removed ${movie.title} from Watched movies`, 'error'));}}>
+                        dispatch(showAlert(`${movie.title}${translate.alertDeletedPending}`, 'error'));}}>
                             <StarsIcon />
                         </Button>
                     </div>
