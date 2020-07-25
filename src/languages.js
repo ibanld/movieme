@@ -36,4 +36,21 @@ export const spanish = {
 	ratingRate: ' estrellas'
 };
 
-export const portuguese = {};
+export const portuguese = {
+	searchTitle: 'Pesquisar',
+	searchPlaceHolder: 'Procure um filme',
+	noResults: 'Uau! Parece que sua pesquisa não foi bem-sucedida. Tente de novo!',
+	searchNavbar: 'Pesquisar',
+	watchedNavbar: 'Vistos',
+	pendingNavbar: 'Pendentes',
+	watchedTitle: 'Seus filmes vistos',
+	pendingTitle: 'Seus filmes pendentes',
+	addMovie: 'Adicione um filme à sua lista',
+	alertDeletedWatch: ' eliminada de tus Películas Vistas',
+	alertAddedWatch: ' añadida a Películas Vistas',
+	alertDeletedPending: ' removido das suas visualizações de filmes',
+	alertAddedPending: ' adicionado aos seus filmes pendentes',
+	ratingInit: 'Você avaliou ',
+	ratingWith: ' com ',
+	ratingRate: ' estrelas'
+};
