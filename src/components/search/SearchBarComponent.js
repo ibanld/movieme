@@ -3,7 +3,6 @@ import { TextField, InputAdornment } from '@material-ui/core'
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import ResultsList from './MoviesListComponent'
 import { useSelector } from 'react-redux'
-import {key} from '../../key/key'
 
 const SearchBar = props => {
     const [search, setSearch] = React.useState('')
@@ -14,7 +13,7 @@ const SearchBar = props => {
     const connect = async (e) => {
                 e.preventDefault();
 
-                const url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=${lang}&query=${search}&page=1&include_adult=false`;
+                const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&language=${lang}&query=${search}&page=1&include_adult=false`;
                 
                 try {
                     const res = await fetch(url);
