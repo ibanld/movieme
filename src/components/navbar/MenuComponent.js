@@ -25,7 +25,7 @@ const MenuComponent = props => {
             >
                 <MenuItem onClick={() => {dispatch(changeLang('en-US')); handleClose(); dispatch(setTranslation('en-US'))}}>English</MenuItem>
                 <MenuItem onClick={() => {dispatch(changeLang('es-ES')); handleClose(); dispatch(setTranslation('es-ES'))}}>Español</MenuItem>
-                <MenuItem onClick={() => {dispatch(changeLang('pt-BR')); handleClose(); dispatch(setTranslation('pt-BR'))}}>Portuguese</MenuItem>
+                <MenuItem onClick={() => {dispatch(changeLang('pt-BR')); handleClose(); dispatch(setTranslation('pt-BR'))}}>Português</MenuItem>
             </Menu>
         </>
     )
