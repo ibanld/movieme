@@ -1,4 +1,4 @@
-[![Movie app logo](./public/moviemelogo.png)](https://ibanld.github.io/movieme/)
+[![Movie app logo](./moviemelogo.png)](https://ibanld.github.io/movieme/)
 # 🎬 MovieMe
 ### _The multi-language Movie Database App_
 
