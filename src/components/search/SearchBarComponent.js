@@ -7,7 +7,6 @@ import {key} from '../../key/key'
 
 const SearchBar = props => {
     const [search, setSearch] = React.useState('')
-    const [loading, setLoading] = React.useState(false)
     const [results, setResults] = React.useState([])
     const lang= useSelector( state => state.lang)
     const connect = async (e) => {
@@ -18,7 +17,6 @@ const SearchBar = props => {
                 try {
                     const res = await fetch(url);
                     const data  = await res.json();
-                    setLoading(true)
                     setResults(data.results)
                     
                 }catch(err){
@@ -51,7 +49,6 @@ const SearchBar = props => {
                     name={search}
                 />
             </form>
-            {!loading && <Paper elevation={3} variant='outlined' style={{height: '50vh', marginTop: '3vh'}}><Typography variant='h5'>Realiza una busqeda</Typography></Paper>}
             {results ?  
                 (results.map( movie => 
                     <ResultsList key={movie.id} movie={movie}/>

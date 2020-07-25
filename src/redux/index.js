@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { createStore, combineReducers } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist'
-import langReducer from './setLang';
+import { persistStore, persistReducer } from 'redux-persist';
+import langReducer from './lang';
 import ratingMoviesReducer from './rating';
 import listedMoviesReducer from './listing';
 import alertReducer from './alert';
@@ -15,14 +15,14 @@ const mainReducer = combineReducers({
 });
 
 const persistConfig = {
-    key: 'MovieMe',
+	key: 'MovieMe',
 	storage
-}
+};
 
-const persistedReducer = persistReducer(persistConfig, mainReducer)
+const persistedReducer = persistReducer(persistConfig, mainReducer);
 
 const store = createStore(persistedReducer);
 
-const persistor = persistStore(store)
+const persistor = persistStore(store);
 
-export {store, persistor};
+export { store, persistor };

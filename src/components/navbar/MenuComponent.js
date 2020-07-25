@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
-import {eng, esp, port } from '../../redux/setLang'
+import  {changeLang } from '../../redux/lang'
 import TranslateIcon from '@material-ui/icons/Translate';
 import { Menu, MenuItem, IconButton } from '@material-ui/core'
 
@@ -22,9 +22,9 @@ const MenuComponent = props => {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={() => {dispatch(eng()); handleClose()}}>English</MenuItem>
-                <MenuItem onClick={() => {dispatch(esp()); handleClose()}}>Español</MenuItem>
-                <MenuItem onClick={() => {dispatch(port()); handleClose()}}>Portuguese</MenuItem>
+                <MenuItem onClick={() => {dispatch(changeLang('en-US')); handleClose()}}>English</MenuItem>
+                <MenuItem onClick={() => {dispatch(changeLang('es-ES')); handleClose()}}>Español</MenuItem>
+                <MenuItem onClick={() => {dispatch(changeLang('pt-BR')); handleClose()}}>Portuguese</MenuItem>
             </Menu>
         </>
     )
