@@ -5,7 +5,7 @@ import SearchBar from './components/search/SearchBarComponent';
 import WatchList from './components/list/WatchListComponent';
 import Rated from './components/rated/RatedComponent';
 
-export const SearchRoute = '/';
+export const SearchRoute = '/movieme';
 export const RatedRoute = '/rated';
 export const WatchListRoute = '/watchlist';
 
