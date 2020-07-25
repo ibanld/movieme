@@ -4,6 +4,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import langReducer from './lang';
 import ratingMoviesReducer from './rating';
 import listedMoviesReducer from './listing';
+import translationReducer from './translation';
 import alertReducer from './alert';
 import storage from 'redux-persist/lib/storage';
 
@@ -11,7 +12,8 @@ const mainReducer = combineReducers({
 	lang: langReducer,
 	rating: ratingMoviesReducer,
 	listing: listedMoviesReducer,
-	alerts: alertReducer
+	alerts: alertReducer,
+	translate: translationReducer
 });
 
 const persistConfig = {

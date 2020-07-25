@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -21,6 +22,7 @@ export default function BottomComponent() {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
+    const translate = useSelector(state => state.translate)
     return (
         <>
             <BottomNavigation
@@ -31,9 +33,9 @@ export default function BottomComponent() {
             showLabels
             className={classes.root}
             >
-            <BottomNavigationAction label="Search" icon={<PageviewTwoToneIcon /> } component={Link} to={SearchRoute} />
-            <BottomNavigationAction label="Watched" icon={<VisibilityTwoToneIcon />} component={Link} to={RatedRoute} />
-            <BottomNavigationAction label="Pending" icon={<StarsTwoToneIcon />} component={Link} to={WatchListRoute}/>
+            <BottomNavigationAction label={translate.searchNavbar} icon={<PageviewTwoToneIcon /> } component={Link} to={SearchRoute} />
+            <BottomNavigationAction label={translate.watchedNavbar} icon={<VisibilityTwoToneIcon />} component={Link} to={RatedRoute} />
+            <BottomNavigationAction label={translate.pendingNavbar} icon={<StarsTwoToneIcon />} component={Link} to={WatchListRoute}/>
             </BottomNavigation>
         </>
     );
