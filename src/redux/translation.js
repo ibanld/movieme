@@ -20,6 +20,8 @@ export default function translationReducer(setTranslation = english, action) {
 				case 'pt-BR':
 					setTranslation = portuguese;
 					return setTranslation;
+				default:
+					return setTranslation;
 			}
 		default:
 			return setTranslation;

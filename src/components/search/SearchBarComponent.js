@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextField, InputAdornment, Paper, Typography } from '@material-ui/core'
+import { TextField, InputAdornment } from '@material-ui/core'
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import ResultsList from './MoviesListComponent'
 import { useSelector } from 'react-redux'
