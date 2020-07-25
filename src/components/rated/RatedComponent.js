@@ -5,12 +5,13 @@ import { Typography } from '@material-ui/core'
 
 const Rated = () => {
     const ratedMovies = useSelector((state) => state.rating)
+    const translate = useSelector((state) => state.translate)
 
     return (
         <div style={{marginTop: '2vh', marginBottom: '10vh'}}>
-            <Typography variant="h4" component="h5">Your Watched Movies</Typography>
+            <Typography variant="h4" component="h5">{translate.watchedTitle}</Typography>
             {ratedMovies.length < 1 ?  
-                ( <>Add a movie to your List</>) :
+                ( <>{translate.addMovie}</>) :
                 (ratedMovies.map(movie => 
                     <ListedItem key={movie.movie.id} movie={movie} />
                 ))               

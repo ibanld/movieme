@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Card, CardContent, CardHeader } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { removeRatedMovie, addRate } from '../../redux/rating';
 import { showAlert } from '../../redux/alert';
 import Moment from 'react-moment';
@@ -9,6 +9,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const ListedItem = ({ movie }) => {
 	const dispatch = useDispatch();
+	const translate = useSelector((state) => state.translate);
 
 	return (
 		<Card
@@ -61,7 +62,11 @@ const ListedItem = ({ movie }) => {
 							onChange={(event, newRate) => {
 								dispatch(addRate(movie.movie, newRate));
 								dispatch(
-									showAlert(`You have rated ${movie.movie.title} with ${newRate} over 5`, 'info')
+									showAlert(
+										`${translate.ratingInit}${movie.movie
+											.title}${translate.ratingWith}${newRate}${translate.ratingRate}`,
+										'info'
+									)
 								);
 							}}
 						/>
@@ -69,9 +74,7 @@ const ListedItem = ({ movie }) => {
 						<VisibilityIcon
 							onClick={() => {
 								dispatch(removeRatedMovie(movie.movie));
-								dispatch(
-									showAlert(` You have deleted ${movie.movie.title} from Watched movies`, 'error')
-								);
+								dispatch(showAlert(`${movie.movie.title}${translate.alertDeletedWatch} `, 'error'));
 							}}
 							style={{ cursor: 'pointer' }}
 						/>
